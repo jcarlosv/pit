@@ -14,5 +14,5 @@ assert_cmd = "1.0.1"
 predicates = "1.0.4"
 
 [badges]
-codecov = { repository = "@repo_org@", branch = "master", service = "@git_service@" }
-travis-ci = { repository = "@repo_org@", branch = "master" }
+codecov = { repository = "jcarlosv/pit", branch = "master", service = "github" }
+travis-ci = { repository = "jcarlosv/pit", branch = "master" }

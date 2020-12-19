@@ -1,24 +1,17 @@
-# Rust project template
+# pit
 
-Personal template to create rust projects using `cargo-generate`
+[![Build Status](https://travis-ci.org/jcarlosv/pit.svg?branch=master)](https://travis-ci.org/jcarlosv/pit)
+[![Coverage Status](https://codecov.io/gh/jcarlosv/pit/branch/master/graph/badge.svg)](https://codecov.io/gh/jcarlosv/pit)
 
-How to use:
-```sh
-REPOSITORY="git@github.com:repo/repo.git"
-git_name=$(basename "${REPOSITORY}")
-git_name="${git_name/.git/}"
-cargo install cargo-generate --features vendored-openssl
-cargo generate --git https://github.com/jcvenegas/rust-template.git  --name "${git_name}"
-cd "${git_name}"
-if command -v nix-shell; then
-        nix-shell
-fi
-git remote add origin "${REPOSITORY}"
-./.ci/setup.sh
-./.ci/run.sh
-git add .ci/ .github/ .gitignore .travis.yml *
-git commit -s -m "init"
-git push origin master
-```
+- [ ] Enable repository in https://app.dependabot.com/ for automated dependency updates
+- [ ] Add repository to travis
+- [ ] Enable codcov, add CODECOV_TOKEN to github secrets
 
-License: Apache-2.0 OR MIT
+
+PROGRAM-SUMMARY
+
+Current version: 0.1.0
+
+Some additional info here
+
+License: MIT OR Apache-2.0
