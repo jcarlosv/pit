@@ -20,18 +20,18 @@ use crate::subcommands::user;
     #[clap(short, long, parse(from_occurrences))]
     verbose: i32,
     #[clap(subcommand)]
-    subcmd: Subcommands,
+    subcmd: SubCommands,
 }
 
 #[derive(Clap)]
-enum Subcommands {
+enum SubCommands {
     User(user::UserSubCmd),
 }
 
 
-fn handle_root_subcmds(s: Subcommands) {
+fn handle_root_subcmds(s: SubCommands) {
     match s {
-        Subcommands::User(s) => {
+        SubCommands::User(s) => {
             user::handle_user_subcmd(s)
         }
     }
@@ -44,7 +44,7 @@ fn main() {
         0 => {},
         1 => println!("Some verbose info"),
         2 => println!("Tons of verbose info"),
-        3 | _ => println!("Don't be crazy"),
+        _ => println!("Don't be crazy"),
     }
     handle_root_subcmds(opts.subcmd)
 }
