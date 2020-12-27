@@ -17,8 +17,8 @@ struct UserNameSubCmd {
     set: Option<String>,
 }
 
-fn handle_username_subcmd(u: UserNameSubCmd) {
-    match u.set {
+fn handle_username_subcmd(u: &UserNameSubCmd) {
+    match &u.set {
         Some(n) => {
             println!("Set user name: {}", n);
         }
@@ -28,10 +28,13 @@ fn handle_username_subcmd(u: UserNameSubCmd) {
     }
 }
 
-pub fn handle_user_subcmd(u: UserSubCmd) {
-    match u.subcmd {
-        UserSubCmds::Name(un) => {
-            handle_username_subcmd(un);
+impl UserSubCmd {
+    pub fn handle(&self) {
+        match &self.subcmd {
+            UserSubCmds::Name(un) => {
+                handle_username_subcmd(un);
+            }
         }
     }
+
 }

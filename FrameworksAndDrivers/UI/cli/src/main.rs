@@ -32,7 +32,7 @@ enum SubCommands {
 fn handle_root_subcmds(s: SubCommands) {
     match s {
         SubCommands::User(s) => {
-            user::handle_user_subcmd(s)
+            s.handle()
         }
     }
 }
