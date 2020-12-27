@@ -16,7 +16,8 @@ mod subcommands;
 use crate::subcommands::user;
 
 #[derive(Clap)]
-#[clap(version = "1.0", author = "The pit Authors")] struct Opts {
+#[clap(version = "1.0", author = "The pit Authors")]
+struct Opts {
     #[clap(short, long, parse(from_occurrences))]
     verbose: i32,
     #[clap(subcommand)]
@@ -28,12 +29,9 @@ enum SubCommands {
     User(user::UserSubCmd),
 }
 
-
 fn handle_root_subcmds(s: SubCommands) {
     match s {
-        SubCommands::User(s) => {
-            s.handle()
-        }
+        SubCommands::User(s) => s.handle(),
     }
 }
 
@@ -41,7 +39,7 @@ fn main() {
     let opts: Opts = Opts::parse();
 
     match opts.verbose {
-        0 => {},
+        0 => {}
         1 => println!("Some verbose info"),
         2 => println!("Tons of verbose info"),
         _ => println!("Don't be crazy"),
